@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Not_Nitesh · 3D Portfolio</title>
+    <title>Notty · 3D Portfolio</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -195,27 +195,6 @@
 
         .nav-links a:hover::after {
             width: 100%;
-        }
-
-        .nav-cta {
-            padding: 8px 20px;
-            border-radius: 50px;
-            background: var(--gradient-1);
-            color: #fff !important;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(108, 60, 224, 0.3);
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 30px rgba(108, 60, 224, 0.5);
-            color: #fff !important;
         }
 
         .nav-toggle {
@@ -434,27 +413,33 @@
         }
 
         /* ============================================
-                   PROJECTS
+                   SOCIAL / CONNECT SECTION
                    ============================================ */
-        #projects {
-            padding: 100px 0 80px;
+        #connect {
+            padding: 80px 0 100px;
         }
 
-        .projects-grid {
+        .connect-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .project-card {
-            padding: 32px 28px;
+        .social-card {
+            padding: 40px 20px;
+            text-align: center;
             transition: var(--transition);
-            cursor: default;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
         }
 
-        .project-card::before {
+        .social-card::before {
             content: '';
             position: absolute;
             inset: 0;
@@ -469,243 +454,59 @@
             transition: var(--transition);
         }
 
-        .project-card:hover::before {
+        .social-card:hover::before {
             opacity: 1;
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.12);
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(108, 60, 224, 0.2);
         }
 
-        .project-icon {
-            font-size: 2.4rem;
-            margin-bottom: 16px;
-            display: inline-block;
+        .social-emoji {
+            font-size: 3.6rem;
+            display: block;
+            margin-bottom: 14px;
+            transition: var(--transition);
+            filter: grayscale(0.2);
         }
 
-        .project-card h3 {
-            font-size: 1.25rem;
+        .social-card:hover .social-emoji {
+            transform: scale(1.2) rotate(-6deg);
+            filter: grayscale(0);
+        }
+
+        .social-label {
             font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
         }
 
-        .project-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .project-tags span {
-            padding: 4px 14px;
-            border-radius: 50px;
-            background: rgba(108, 60, 224, 0.15);
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--accent-3);
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--accent-3);
-            transition: var(--transition);
-        }
-
-        .project-link:hover {
-            gap: 12px;
-            color: var(--accent-1);
-        }
-
-        /* ============================================
-                   SKILLS
-                   ============================================ */
-        #skills {
-            padding: 80px 0 100px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 28px 16px;
-            transition: var(--transition);
-            cursor: default;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        .skill-icon {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-            transition: var(--transition);
-        }
-
-        .skill-item:hover .skill-icon {
-            transform: scale(1.12) rotate(-4deg);
-        }
-
-        .skill-item .name {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .skill-item .level {
-            font-size: 0.75rem;
+        .social-handle {
+            font-size: 0.85rem;
             color: var(--text-muted);
             margin-top: 4px;
         }
 
-        /* ============================================
-                   CONTACT
-                   ============================================ */
-        #contact {
-            padding: 80px 0 100px;
+        /* floating emoji background (decorative) */
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            animation: float-emoji 12s infinite alternate ease-in-out;
         }
 
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .contact-info h2 {
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-        }
-
-        .contact-info h2 .highlight {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-info p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 400px;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-top: 8px;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 20px;
-            border-radius: var(--radius-sm);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            transition: var(--transition);
-            color: var(--text-secondary);
-        }
-
-        .contact-link:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-primary);
-            transform: translateX(6px);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .contact-link .emoji {
-            font-size: 1.4rem;
-            width: 32px;
-        }
-
-        .contact-link .label {
-            font-weight: 500;
-        }
-        .contact-link .value {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            padding: 40px 36px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-form .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .contact-form label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            padding: 14px 18px;
-            border-radius: var(--radius-sm);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            outline: none;
-            resize: vertical;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--accent-1);
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 0 0 4px rgba(108, 60, 224, 0.1);
-        }
-
-        .contact-form textarea {
-            min-height: 120px;
-        }
-
-        .contact-form .btn-primary {
-            align-self: flex-start;
-            padding: 14px 40px;
+        @keyframes float-emoji {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translate(30px, -40px) rotate(20deg) scale(1.2);
+            }
         }
 
         /* ============================================
@@ -736,6 +537,87 @@
         }
 
         /* ============================================
+                   OVERLAY (Web shooter + welcome)
+                   ============================================ */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0f;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1.2s ease;
+            pointer-events: none;
+        }
+
+        #overlay.hidden {
+            opacity: 0;
+        }
+
+        #overlay canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .welcome-text {
+            position: relative;
+            z-index: 10;
+            font-size: clamp(2.8rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: welcomeFadeIn 1.2s ease forwards 0.4s;
+            text-shadow: 0 0 60px rgba(108, 60, 224, 0.3);
+        }
+
+        @keyframes welcomeFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .welcome-sub {
+            position: relative;
+            z-index: 10;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.8s;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
                    RESPONSIVE
                    ============================================ */
         @media (max-width: 1024px) {
@@ -758,28 +640,6 @@
 
             #hero-3d {
                 height: 380px;
-            }
-
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                align-items: center;
-                text-align: center;
-            }
-
-            .contact-info p {
-                max-width: 100%;
-            }
-
-            .contact-links {
-                width: 100%;
-                max-width: 480px;
-            }
-
-            .contact-form .btn-primary {
-                align-self: center;
             }
         }
 
@@ -818,16 +678,17 @@
                 height: 300px;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .connect-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
             }
 
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .social-card {
+                padding: 28px 16px;
             }
 
-            .contact-form {
-                padding: 28px 20px;
+            .social-emoji {
+                font-size: 2.8rem;
             }
 
             .scroll-indicator {
@@ -856,17 +717,17 @@
                 justify-content: center;
             }
 
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .connect-grid {
+                grid-template-columns: 1fr 1fr;
                 gap: 12px;
             }
 
-            .skill-item {
+            .social-card {
                 padding: 20px 12px;
             }
 
-            .skill-icon {
-                font-size: 2rem;
+            .social-emoji {
+                font-size: 2.2rem;
             }
         }
 
@@ -896,27 +757,30 @@
         .reveal-delay-4 {
             transition-delay: 0.4s;
         }
-        .reveal-delay-5 {
-            transition-delay: 0.5s;
-        }
     </style>
 </head>
 
 <body>
 
     <!-- ============================================
+    OVERLAY (Web Shooter + Welcome)
+    ============================================ -->
+    <div id="overlay">
+        <canvas id="webCanvas"></canvas>
+        <div class="welcome-text">Welcome to Notty's Site</div>
+        <div class="welcome-sub">✦ web developer · creator · dreamer ✦</div>
+    </div>
+
+    <!-- ============================================
     NAVIGATION
     ============================================ -->
     <nav id="navbar">
         <div class="container">
-            <a href="#" class="logo">Not<span>_Nitesh</span></a>
+            <a href="#" class="logo">Not<span>ty</span></a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+                <li><a href="#connect">Connect</a></li>
             </ul>
 
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -935,27 +799,26 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Available for freelance
+                    Always building
                 </div>
 
                 <h1>
-                    Building <br />
-                    <span class="highlight">Digital Experiences</span>
+                    I'm <span class="highlight">Notty</span><br />
+                    <span style="font-size:0.6em; background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">web &amp; 3D</span>
                 </h1>
 
                 <p>
-                    Hi, I'm Not_Nitesh — a web developer who crafts immersive,
-                    interactive, and future-ready interfaces. Let's bring your
-                    ideas to life.
+                    Crafting immersive digital experiences with a touch of
+                    futuristic flair. Let's create something extraordinary.
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary">
-                        View My Work
+                    <a href="#connect" class="btn-primary">
+                        Connect with me
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
-                    <a href="#contact" class="btn-secondary">
-                        Get in Touch
+                    <a href="#hero" class="btn-secondary">
+                        Explore
                     </a>
                 </div>
             </div>
@@ -970,184 +833,49 @@
     </section>
 
     <!-- ============================================
-    PROJECTS
+    CONNECT / SOCIAL
     ============================================ -->
-    <section id="projects">
+    <section id="connect">
         <div class="container">
             <div class="reveal">
-                <h2 class="section-title">Selected Projects</h2>
+                <h2 class="section-title">Let's Connect</h2>
                 <p class="section-subtitle">
-                    A glimpse into some of the work I've built with passion
-                    and precision.
+                    Find me on these platforms — let's chat, share ideas, or just vibe.
                 </p>
             </div>
 
-            <div class="projects-grid">
-                <div class="project-card glass reveal reveal-delay-1">
-                    <div class="project-icon">🌐</div>
-                    <h3>Nexus Dashboard</h3>
-                    <p>
-                        A real-time analytics dashboard with live data streams,
-                        interactive charts, and a dark-glass UI.
-                    </p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>D3</span>
-                        <span>WebSocket</span>
-                    </div>
-                    <a href="#" class="project-link">Live Demo →</a>
-                </div>
-
-                <div class="project-card glass reveal reveal-delay-2">
-                    <div class="project-icon">🎮</div>
-                    <h3>Orbit Arcade</h3>
-                    <p>
-                        A browser-based 3D gaming platform featuring
-                        physics-based mechanics and multiplayer support.
-                    </p>
-                    <div class="project-tags">
-                        <span>Three.js</span>
-                        <span>Node</span>
-                        <span>WebRTC</span>
-                    </div>
-                    <a href="#" class="project-link">Live Demo →</a>
-                </div>
-
-                <div class="project-card glass reveal reveal-delay-3">
-                    <div class="project-icon">📱</div>
-                    <h3>Bloom Wallet</h3>
-                    <p>
-                        A minimalist mobile-first crypto wallet with
-                        biometric authentication and real-time price tracking.
-                    </p>
-                    <div class="project-tags">
-                        <span>React Native</span>
-                        <span>Firebase</span>
-                        <span>Web3</span>
-                    </div>
-                    <a href="#" class="project-link">Live Demo →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    SKILLS
-    ============================================ -->
-    <section id="skills">
-        <div class="container">
-            <div class="reveal">
-                <h2 class="section-title">Skills &amp; Tools</h2>
-                <p class="section-subtitle">
-                    Technologies I work with to build beautiful, functional
-                    digital products.
-                </p>
+            <div class="connect-grid">
+                <!-- YouTube -->
+                <a href="#" target="_blank" class="social-card glass reveal reveal-delay-1">
+                    <span class="social-emoji">▶️</span>
+                    <div class="social-label">YouTube</div>
+                    <div class="social-handle">@nottydev</div>
+                </a>
+                <!-- Discord -->
+                <a href="#" target="_blank" class="social-card glass reveal reveal-delay-2">
+                    <span class="social-emoji">💬</span>
+                    <div class="social-label">Discord</div>
+                    <div class="social-handle">notty#1337</div>
+                </a>
+                <!-- Telegram -->
+                <a href="#" target="_blank" class="social-card glass reveal reveal-delay-3">
+                    <span class="social-emoji">✈️</span>
+                    <div class="social-label">Telegram</div>
+                    <div class="social-handle">@notty_dev</div>
+                </a>
+                <!-- Email -->
+                <a href="mailto:notty@example.com" class="social-card glass reveal reveal-delay-4">
+                    <span class="social-emoji">📬</span>
+                    <div class="social-label">Email</div>
+                    <div class="social-handle">notty@example.com</div>
+                </a>
             </div>
 
-            <div class="skills-grid">
-                <div class="skill-item glass reveal reveal-delay-1">
-                    <span class="skill-icon">⚛️</span>
-                    <span class="name">React</span>
-                    <span class="level">Advanced</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-2">
-                    <span class="skill-icon">🟢</span>
-                    <span class="name">Node.js</span>
-                    <span class="level">Advanced</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-3">
-                    <span class="skill-icon">🌀</span>
-                    <span class="name">Three.js</span>
-                    <span class="level">Proficient</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-4">
-                    <span class="skill-icon">🎨</span>
-                    <span class="name">Figma</span>
-                    <span class="level">Proficient</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-5">
-                    <span class="skill-icon">🐍</span>
-                    <span class="name">Python</span>
-                    <span class="level">Intermediate</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-1">
-                    <span class="skill-icon">☁️</span>
-                    <span class="name">AWS</span>
-                    <span class="level">Intermediate</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-2">
-                    <span class="skill-icon">🗄️</span>
-                    <span class="name">MongoDB</span>
-                    <span class="level">Proficient</span>
-                </div>
-                <div class="skill-item glass reveal reveal-delay-3">
-                    <span class="skill-icon">📦</span>
-                    <span class="name">Docker</span>
-                    <span class="level">Intermediate</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    CONTACT
-    ============================================ -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info reveal">
-                    <h2>
-                        Let's build<br />
-                        something <span class="highlight">amazing</span>
-                    </h2>
-                    <p>
-                        Whether you have a project in mind or just want to
-                        say hello — I'm always open to a conversation.
-                    </p>
-
-                    <div class="contact-links">
-                        <a href="mailto:nitesh@example.com" class="contact-link">
-                            <span class="emoji">📧</span>
-                            <span class="label">Email</span>
-                            <span class="value">nitesh@example.com</span>
-                        </a>
-                        <a href="#" class="contact-link">
-                            <span class="emoji">🐦</span>
-                            <span class="label">Twitter</span>
-                            <span class="value">@not_nitesh</span>
-                        </a>
-                        <a href="#" class="contact-link">
-                            <span class="emoji">💼</span>
-                            <span class="label">LinkedIn</span>
-                            <span class="value">/in/notnitesh</span>
-                        </a>
-                        <a href="#" class="contact-link">
-                            <span class="emoji">🐙</span>
-                            <span class="label">GitHub</span>
-                            <span class="value">/not-nitesh</span>
-                        </a>
-                    </div>
-                </div>
-
-                <form class="contact-form glass reveal reveal-delay-2" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" placeholder="John Doe" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="john@example.com" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" placeholder="Tell me about your project…" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">
-                        Send Message
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
-                </form>
-            </div>
+            <!-- Decorative floating emojis -->
+            <div class="floating-emoji" style="top:10%; left:5%; animation-duration:14s;">🚀</div>
+            <div class="floating-emoji" style="bottom:15%; right:8%; animation-duration:18s; animation-delay:2s;">✨</div>
+            <div class="floating-emoji" style="top:40%; right:2%; animation-duration:16s; animation-delay:4s;">⚡</div>
+            <div class="floating-emoji" style="bottom:30%; left:3%; animation-duration:20s; animation-delay:1s;">🎯</div>
         </div>
     </section>
 
@@ -1157,8 +885,8 @@
     <footer>
         <div class="container">
             <p>
-                &copy; 2026 Not_Nitesh &mdash; crafted with
-                <span class="heart">♥</span> and lots of coffee.
+                &copy; 2026 Notty &mdash; built with
+                <span class="heart">♥</span> and a lot of web fluid.
             </p>
         </div>
     </footer>
@@ -1171,24 +899,208 @@
 
     <script>
         // ============================================
+        // OVERLAY: Web Shooter Canvas Animation
+        // ============================================
+        (function initOverlay() {
+            const overlay = document.getElementById('overlay');
+            const canvas = document.getElementById('webCanvas');
+            const ctx = canvas.getContext('2d');
+
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            // Center of the screen (shooter origin)
+            const cx = width / 2;
+            const cy = height / 2;
+
+            // We'll draw a web-shooter effect: multiple lines radiating from center
+            // with a spider-web pattern and some "web" streaks.
+            const lines = [];
+            const numLines = 80;
+            const maxRadius = Math.max(width, height) * 0.9;
+
+            // Each line: angle, current radius, speed, thickness
+            for (let i = 0; i < numLines; i++) {
+                const angle = (i / numLines) * Math.PI * 2 + (Math.random() - 0.5) * 0.2;
+                const speed = 0.02 + Math.random() * 0.04;
+                const thickness = 0.5 + Math.random() * 2;
+                lines.push({
+                    angle: angle,
+                    radius: 0,
+                    speed: speed,
+                    thickness: thickness,
+                    maxRadius: maxRadius * (0.6 + Math.random() * 0.4),
+                    offset: Math.random() * 100,
+                });
+            }
+
+            // Additional web "strands" that curve
+            const strands = [];
+            for (let i = 0; i < 20; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const length = 200 + Math.random() * 400;
+                const curve = (Math.random() - 0.5) * 0.02;
+                strands.push({
+                    angle: angle,
+                    length: length,
+                    curve: curve,
+                    progress: 0,
+                    speed: 0.02 + Math.random() * 0.03,
+                });
+            }
+
+            let startTime = Date.now();
+            const duration = 2200; // ms
+
+            function drawWeb(progress) {
+                ctx.clearRect(0, 0, width, height);
+
+                // Draw dark background with slight vignette
+                const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxRadius);
+                grad.addColorStop(0, 'rgba(20, 10, 40, 0.9)');
+                grad.addColorStop(1, 'rgba(0,0,0,0.95)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, width, height);
+
+                // Draw web lines (radial)
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+
+                for (let line of lines) {
+                    const r = line.radius;
+                    const angle = line.angle;
+                    const x = cx + Math.cos(angle) * r;
+                    const y = cy + Math.sin(angle) * r;
+
+                    const alpha = Math.min(1, r / 100) * 0.9;
+                    const width = line.thickness * (1 - r / line.maxRadius * 0.6);
+
+                    ctx.beginPath();
+                    ctx.moveTo(cx, cy);
+                    ctx.lineTo(x, y);
+                    ctx.strokeStyle = `rgba(200, 180, 255, ${alpha * 0.7})`;
+                    ctx.lineWidth = Math.max(0.5, width);
+                    ctx.stroke();
+
+                    // Glow effect
+                    ctx.shadowColor = 'rgba(150, 100, 255, 0.15)';
+                    ctx.shadowBlur = 20;
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                }
+
+                // Draw curved strands (web shooter "webs")
+                for (let strand of strands) {
+                    const p = strand.progress;
+                    if (p <= 0) continue;
+                    const angle = strand.angle;
+                    const length = strand.length * p;
+                    const curve = strand.curve;
+
+                    ctx.beginPath();
+                    const steps = 20;
+                    for (let i = 0; i <= steps; i++) {
+                        const t = i / steps;
+                        const r = t * length;
+                        const a = angle + curve * t * 5;
+                        const x = cx + Math.cos(a) * r;
+                        const y = cy + Math.sin(a) * r;
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.strokeStyle = `rgba(220, 200, 255, ${0.2 + 0.3 * p})`;
+                    ctx.lineWidth = 1.5 * p;
+                    ctx.shadowColor = 'rgba(180, 140, 255, 0.3)';
+                    ctx.shadowBlur = 15;
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                }
+
+                // Add a few bright "web shooter" particles at center
+                for (let i = 0; i < 6; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const dist = 10 + Math.random() * 30 * progress;
+                    const x = cx + Math.cos(angle) * dist;
+                    const y = cy + Math.sin(angle) * dist;
+                    const size = 2 + Math.random() * 4;
+                    const alpha = 0.5 + Math.random() * 0.5;
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 230, 255, ${alpha * 0.8})`;
+                    ctx.shadowColor = 'rgba(200, 150, 255, 0.6)';
+                    ctx.shadowBlur = 30;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                // Update radii and progress
+                const dt = 1;
+                for (let line of lines) {
+                    line.radius += line.speed * dt * 6 * progress;
+                    if (line.radius > line.maxRadius) {
+                        line.radius = 0;
+                        line.angle += (Math.random() - 0.5) * 0.2;
+                    }
+                }
+
+                for (let strand of strands) {
+                    strand.progress = Math.min(1, strand.progress + strand.speed * dt * 0.8);
+                    if (strand.progress >= 1) {
+                        strand.progress = 0;
+                        strand.angle = Math.random() * Math.PI * 2;
+                        strand.length = 200 + Math.random() * 400;
+                        strand.curve = (Math.random() - 0.5) * 0.03;
+                    }
+                }
+            }
+
+            function animateOverlay() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(1, elapsed / duration);
+
+                drawWeb(progress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateOverlay);
+                } else {
+                    // Fade out overlay
+                    overlay.classList.add('hidden');
+                    setTimeout(() => {
+                        overlay.style.display = 'none';
+                    }, 1200);
+                }
+            }
+
+            // Start animation
+            animateOverlay();
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            });
+        })();
+
+        // ============================================
         // NAVIGATION
         // ============================================
         const navbar = document.getElementById('navbar');
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
 
-        // Scroll effect
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Mobile menu toggle
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             navLinks.classList.toggle('open');
         });
 
-        // Close menu on link click
         document.querySelectorAll('.nav-links a').forEach((link) => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
@@ -1197,7 +1109,7 @@
         });
 
         // ============================================
-        // REVEAL ON SCROLL (Intersection Observer)
+        // REVEAL ON SCROLL
         // ============================================
         const revealElements = document.querySelectorAll('.reveal');
 
@@ -1217,7 +1129,7 @@
         revealElements.forEach((el) => revealObserver.observe(el));
 
         // ============================================
-        // THREE.JS — 3D AVATAR / HERO SCENE
+        // THREE.JS — 3D HERO (same as before, but with subtle adjustments)
         // ============================================
         (function initHero3D() {
             const container = document.getElementById('hero-3d');
@@ -1226,14 +1138,11 @@
             const width = container.clientWidth;
             const height = container.clientHeight;
 
-            // Scene
             const scene = new THREE.Scene();
 
-            // Camera
             const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
             camera.position.set(0, 0, 7);
 
-            // Renderer
             const renderer = new THREE.WebGLRenderer({
                 alpha: true,
                 antialias: true,
@@ -1244,7 +1153,6 @@
             renderer.toneMappingExposure = 1.2;
             container.appendChild(renderer.domElement);
 
-            // Lights
             const ambientLight = new THREE.AmbientLight(0x40406b, 0.6);
             scene.add(ambientLight);
 
@@ -1260,29 +1168,24 @@
             rimLight.position.set(0, -2, -4);
             scene.add(rimLight);
 
-            // ========================================
-            // MAIN AVATAR: Torus Knot with gradient
-            // ========================================
-            const knotGeo = new THREE.TorusKnotGeometry(1.2, 0.42, 180, 24);
-            const knotMat = new THREE.MeshPhysicalMaterial({
+            // Main shape: Icosahedron with glowing edges
+            const geo = new THREE.IcosahedronGeometry(1.4, 1);
+            const mat = new THREE.MeshPhysicalMaterial({
                 color: 0x6c3ce0,
-                metalness: 0.3,
-                roughness: 0.2,
+                metalness: 0.2,
+                roughness: 0.3,
                 emissive: 0x3c1c80,
-                emissiveIntensity: 0.15,
-                clearcoat: 0.6,
-                clearcoatRoughness: 0.3,
-                wireframe: false,
+                emissiveIntensity: 0.2,
+                clearcoat: 0.8,
+                clearcoatRoughness: 0.2,
                 transparent: true,
                 opacity: 0.95,
             });
-            const knot = new THREE.Mesh(knotGeo, knotMat);
-            scene.add(knot);
+            const mesh = new THREE.Mesh(geo, mat);
+            scene.add(mesh);
 
-            // ========================================
-            // WIREFRAME OVERLAY
-            // ========================================
-            const wireGeo = new THREE.TorusKnotGeometry(1.25, 0.46, 120, 16);
+            // Wireframe overlay
+            const wireGeo = new THREE.IcosahedronGeometry(1.45, 1);
             const wireMat = new THREE.MeshBasicMaterial({
                 color: 0x40b0e0,
                 wireframe: true,
@@ -1292,10 +1195,8 @@
             const wire = new THREE.Mesh(wireGeo, wireMat);
             scene.add(wire);
 
-            // ========================================
-            // ORBITING PARTICLES
-            // ========================================
-            const particleCount = 300;
+            // Orbiting particles
+            const particleCount = 400;
             const positions = new Float32Array(particleCount * 3);
             const sizes = new Float32Array(particleCount);
             const speeds = new Float32Array(particleCount);
@@ -1304,12 +1205,12 @@
             for (let i = 0; i < particleCount; i++) {
                 const theta = Math.random() * Math.PI * 2;
                 const phi = Math.acos(2 * Math.random() - 1);
-                const radius = 2.2 + Math.random() * 1.6;
+                const radius = 2.0 + Math.random() * 1.8;
                 positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
                 positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
                 positions[i * 3 + 2] = radius * Math.cos(phi);
-                sizes[i] = 0.02 + Math.random() * 0.04;
-                speeds[i] = 0.2 + Math.random() * 0.3;
+                sizes[i] = 0.02 + Math.random() * 0.05;
+                speeds[i] = 0.15 + Math.random() * 0.35;
                 offsets[i] = Math.random() * Math.PI * 2;
             }
 
@@ -1319,7 +1220,7 @@
 
             const particleMat = new THREE.PointsMaterial({
                 color: 0xa080ff,
-                size: 0.04,
+                size: 0.05,
                 transparent: true,
                 opacity: 0.7,
                 blending: THREE.AdditiveBlending,
@@ -1328,7 +1229,6 @@
             const particles = new THREE.Points(particleGeo, particleMat);
             scene.add(particles);
 
-            // Store particle data for animation
             const particleData = {
                 positions: positions.slice(),
                 speeds: speeds,
@@ -1336,9 +1236,7 @@
                 geometry: particleGeo,
             };
 
-            // ========================================
-            // FLOATING RINGS (decoration)
-            // ========================================
+            // Floating rings
             const rings = [];
             for (let i = 0; i < 3; i++) {
                 const rGeo = new THREE.TorusGeometry(1.8 + i * 0.4, 0.015, 16, 60);
@@ -1346,7 +1244,6 @@
                     color: i === 0 ? 0x6c3ce0 : i === 1 ? 0xe040a0 : 0x40b0e0,
                     transparent: true,
                     opacity: 0.12 + i * 0.04,
-                    wireframe: false,
                 });
                 const ring = new THREE.Mesh(rGeo, rMat);
                 ring.rotation.x = Math.PI / 3 + i * 0.3;
@@ -1355,13 +1252,11 @@
                 rings.push(ring);
             }
 
-            // ========================================
-            // MOUSE TRACKING (subtle parallax)
-            // ========================================
-            let mouseX = 0;
-            let mouseY = 0;
-            let targetX = 0;
-            let targetY = 0;
+            // Mouse tracking
+            let mouseX = 0,
+                mouseY = 0,
+                targetX = 0,
+                targetY = 0;
 
             container.addEventListener('mousemove', (e) => {
                 const rect = container.getBoundingClientRect();
@@ -1380,9 +1275,6 @@
                 mouseY = y * 0.4;
             }, { passive: true });
 
-            // ========================================
-            // RESIZE
-            // ========================================
             function resize() {
                 const w = container.clientWidth;
                 const h = container.clientHeight;
@@ -1390,12 +1282,8 @@
                 camera.updateProjectionMatrix();
                 renderer.setSize(w, h);
             }
-
             window.addEventListener('resize', resize);
 
-            // ========================================
-            // ANIMATION LOOP
-            // ========================================
             const clock = new THREE.Clock();
 
             function animate() {
@@ -1403,30 +1291,27 @@
 
                 const t = clock.getElapsedTime();
 
-                // Smooth mouse follow
                 targetX += (mouseX - targetX) * 0.04;
                 targetY += (mouseY - targetY) * 0.04;
 
-                // Rotate main knot
-                knot.rotation.x = t * 0.25 + targetY * 0.3;
-                knot.rotation.y = t * 0.4 + targetX * 0.3;
-                knot.rotation.z = t * 0.1;
+                mesh.rotation.x = t * 0.2 + targetY * 0.3;
+                mesh.rotation.y = t * 0.35 + targetX * 0.3;
+                mesh.rotation.z = t * 0.08;
 
-                wire.rotation.x = knot.rotation.x;
-                wire.rotation.y = knot.rotation.y;
-                wire.rotation.z = knot.rotation.z;
+                wire.rotation.x = mesh.rotation.x;
+                wire.rotation.y = mesh.rotation.y;
+                wire.rotation.z = mesh.rotation.z;
 
-                // Floating motion
-                knot.position.y = Math.sin(t * 0.6) * 0.12;
-                wire.position.y = knot.position.y;
+                mesh.position.y = Math.sin(t * 0.5) * 0.15;
+                wire.position.y = mesh.position.y;
 
-                // Animate particles: orbit + pulse
+                // Animate particles
                 const pos = particleData.geometry.attributes.position.array;
                 const orig = particleData.positions;
                 for (let i = 0; i < particleCount; i++) {
                     const i3 = i * 3;
-                    const angle = t * 0.15 * particleData.speeds[i] + particleData.offsets[i];
-                    const radius = 2.2 + Math.sin(t * 0.3 + particleData.offsets[i]) * 0.6;
+                    const angle = t * 0.12 * particleData.speeds[i] + particleData.offsets[i];
+                    const radius = 2.0 + Math.sin(t * 0.25 + particleData.offsets[i]) * 0.5;
                     const theta = Math.atan2(orig[i3 + 1], orig[i3]) + angle * 0.02;
                     const phi = Math.acos(orig[i3 + 2] / Math.sqrt(orig[i3] * orig[i3] + orig[i3 + 1] * orig[i3 + 1] + orig[
                     i3 + 2] * orig[i3 + 2]) || 0);
@@ -1436,18 +1321,15 @@
                 }
                 particleData.geometry.attributes.position.needsUpdate = true;
 
-                // Rotate particle system slowly
-                particles.rotation.x = t * 0.02;
-                particles.rotation.y = t * 0.03;
+                particles.rotation.x = t * 0.015;
+                particles.rotation.y = t * 0.025;
 
-                // Animate rings
                 rings.forEach((ring, idx) => {
                     ring.rotation.x = Math.PI / 3 + idx * 0.3 + Math.sin(t * 0.2 + idx) * 0.1;
-                    ring.rotation.y = t * 0.15 + idx * 0.5 + Math.cos(t * 0.1 + idx) * 0.1;
-                    ring.position.y = Math.sin(t * 0.4 + idx * 1.2) * 0.1;
+                    ring.rotation.y = t * 0.12 + idx * 0.5 + Math.cos(t * 0.1 + idx) * 0.1;
+                    ring.position.y = Math.sin(t * 0.35 + idx * 1.2) * 0.1;
                 });
 
-                // Camera slight parallax
                 camera.position.x = targetX * 0.5;
                 camera.position.y = targetY * 0.3;
                 camera.lookAt(0, 0, 0);
@@ -1457,29 +1339,11 @@
 
             animate();
 
-            // Cleanup
             return () => {
                 window.removeEventListener('resize', resize);
                 renderer.dispose();
             };
         })();
-
-        // ============================================
-        // CONTACT FORM (simple handler)
-        // ============================================
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('.btn-primary');
-            const original = btn.innerHTML;
-            btn.innerHTML = '✓ Sent!';
-            btn.style.pointerEvents = 'none';
-            setTimeout(() => {
-                btn.innerHTML = original;
-                btn.style.pointerEvents = 'auto';
-                e.target.reset();
-            }, 2400);
-        });
     </script>
-
 </body>
 </html>
