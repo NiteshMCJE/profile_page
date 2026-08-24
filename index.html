@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notty_Nitesh · Portfolio</title>
+    <title>Notty_Nitesh · Scrollytelling</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
         /* ============================================
-                   CSS RESET & BASE (same as before)
+                   RESET & BASE
                    ============================================ */
-        *,
-        *::before,
-        *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
@@ -35,50 +30,33 @@
             --accent-2: #e040a0;
             --accent-3: #40b0e0;
             --gradient-1: linear-gradient(135deg, #6c3ce0, #e040a0);
-            --gradient-2: linear-gradient(135deg, #e040a0, #40b0e0);
             --radius: 20px;
             --radius-sm: 12px;
             --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         html {
             scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent-1) transparent;
         }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-1);
-            border-radius: 10px;
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
-
         a {
             text-decoration: none;
             color: inherit;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Glassmorphism */
+        /* ============================================
+                   GLASS & UTILITY
+                   ============================================ */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(20px) saturate(1.4);
@@ -87,23 +65,15 @@
             border-radius: var(--radius);
             box-shadow: 0 8px 40px var(--glass-shadow);
         }
-
-        .glass-sm {
-            border-radius: var(--radius-sm);
-        }
-
-        /* Section titles */
         .section-title {
             font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin-bottom: 0.5rem;
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .section-subtitle {
             font-size: 1.05rem;
             color: var(--text-secondary);
@@ -111,7 +81,9 @@
             margin-bottom: 3rem;
         }
 
-        /* Navigation */
+        /* ============================================
+                   NAVIGATION
+                   ============================================ */
         nav {
             position: fixed;
             top: 0;
@@ -120,23 +92,18 @@
             z-index: 1000;
             padding: 16px 0;
             transition: var(--transition);
-            backdrop-filter: blur(0px);
         }
-
         nav.scrolled {
             background: rgba(10, 10, 15, 0.75);
             backdrop-filter: blur(20px) saturate(1.4);
-            -webkit-backdrop-filter: blur(20px) saturate(1.4);
             border-bottom: 1px solid var(--glass-border);
             padding: 10px 0;
         }
-
         nav .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-
         .logo {
             font-size: 1.4rem;
             font-weight: 800;
@@ -146,19 +113,16 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .logo span {
             color: var(--text-primary);
             -webkit-text-fill-color: var(--text-primary);
         }
-
         .nav-links {
             display: flex;
             align-items: center;
             gap: 32px;
             list-style: none;
         }
-
         .nav-links a {
             font-size: 0.9rem;
             font-weight: 500;
@@ -166,7 +130,6 @@
             transition: var(--transition);
             position: relative;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -177,15 +140,12 @@
             background: var(--gradient-1);
             transition: var(--transition);
         }
-
         .nav-links a:hover {
             color: var(--text-primary);
         }
-
         .nav-links a:hover::after {
             width: 100%;
         }
-
         .nav-toggle {
             display: none;
             flex-direction: column;
@@ -195,7 +155,6 @@
             border: none;
             padding: 4px;
         }
-
         .nav-toggle span {
             display: block;
             width: 26px;
@@ -204,7 +163,6 @@
             border-radius: 4px;
             transition: var(--transition);
         }
-
         .nav-toggle.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
@@ -216,73 +174,149 @@
         }
 
         /* ============================================
-                   HERO
+                   OVERLAY (Web Shooter + Welcome)
                    ============================================ */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        #hero .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0f;
+            z-index: 9999;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .hero-badge {
-            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 16px 6px 8px;
-            border-radius: 50px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            width: fit-content;
-            backdrop-filter: blur(10px);
+            justify-content: center;
+            transition: opacity 1.2s ease;
+            pointer-events: none;
         }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #4ade80;
-            display: inline-block;
-            animation: pulse-dot 2s infinite;
+        #overlay.hidden {
+            opacity: 0;
         }
-
-        @keyframes pulse-dot {
-            0%,
+        #overlay canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .welcome-text {
+            position: relative;
+            z-index: 10;
+            font-size: clamp(2.8rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: welcomeFadeIn 1.2s ease forwards 0.4s;
+            text-shadow: 0 0 60px rgba(108, 60, 224, 0.3);
+        }
+        @keyframes welcomeFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
             100% {
                 opacity: 1;
                 transform: scale(1);
             }
-            50% {
-                opacity: 0.6;
-                transform: scale(0.8);
+        }
+        .welcome-sub {
+            position: relative;
+            z-index: 10;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeUp 1s ease forwards 0.8s;
+        }
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .hero-content h1 {
+        /* ============================================
+                   HERO + SCROLLYTELLING CONTAINER
+                   ============================================ */
+        #scroll-container {
+            position: relative;
+            height: 400vh;
+            /* 4x viewport height for scroll duration */;
+        }
+
+        #sticky-canvas {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+
+        #sticky-canvas canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* ============================================
+                   SCROLL TEXT OVERLAYS
+                   ============================================ */
+        .scroll-text {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 0 5%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(30px);
+            z-index: 10;
+            text-align: center;
+        }
+        .scroll-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-text h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.8);
+        }
+        .scroll-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Text positions */
+        #text-hero {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #text-hero.visible {
+            transform: translateY(-50%);
+        }
+        #text-hero h1 {
             font-size: clamp(4rem, 10vw, 7rem);
             font-weight: 800;
-            line-height: 1.05;
             letter-spacing: -0.04em;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -290,21 +324,51 @@
             background-clip: text;
             text-shadow: 0 0 60px rgba(108, 60, 224, 0.2);
         }
-
-        .hero-content .sub-headline {
+        #text-hero .sub {
             font-size: 1.15rem;
             color: var(--text-secondary);
             max-width: 480px;
-            line-height: 1.7;
+            margin: 12px auto 0;
         }
 
+        #text-30 {
+            top: 30%;
+            text-align: left;
+            padding-left: 10%;
+        }
+        #text-30 h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+        }
+
+        #text-60 {
+            top: 60%;
+            text-align: right;
+            padding-right: 10%;
+        }
+        #text-60 h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+        }
+
+        #text-90 {
+            top: 85%;
+            text-align: center;
+        }
+        #text-90 h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+        }
+
+        /* Buttons overlay */
         .hero-buttons {
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
-            margin-top: 8px;
+            z-index: 20;
+            pointer-events: auto;
         }
-
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -319,13 +383,12 @@
             cursor: pointer;
             transition: var(--transition);
             box-shadow: 0 4px 30px rgba(108, 60, 224, 0.3);
+            pointer-events: auto;
         }
-
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 50px rgba(108, 60, 224, 0.5);
         }
-
         .btn-secondary {
             display: inline-flex;
             align-items: center;
@@ -340,137 +403,58 @@
             cursor: pointer;
             transition: var(--transition);
             backdrop-filter: blur(10px);
+            pointer-events: auto;
         }
-
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Hero 3D Canvas (Minecraft character) */
-        #hero-3d {
-            width: 100%;
-            height: 500px;
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: radial-gradient(ellipse at center, rgba(108, 60, 224, 0.08), transparent 70%);
-        }
-
-        #hero-3d canvas {
-            display: block;
-            width: 100% !important;
-            height: 100% !important;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            animation: float-down 2.5s ease-in-out infinite;
-            z-index: 2;
-        }
-
-        .scroll-indicator .line {
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, var(--accent-1), transparent);
-        }
-
-        @keyframes float-down {
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateX(-50%) translateY(8px);
-                opacity: 1;
-            }
-        }
-
         /* ============================================
-                   SOCIAL / CONNECT SECTION
+                   CONNECT SECTION (after scroll)
                    ============================================ */
         #connect {
-            padding: 80px 0 100px;
+            padding: 100px 0 80px;
+            position: relative;
+            z-index: 5;
+            background: var(--bg-primary);
         }
-
         .connect-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-
         .social-card {
             padding: 40px 20px;
             text-align: center;
             transition: var(--transition);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
         }
-
-        .social-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            padding: 1px;
-            background: var(--gradient-1);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .social-card:hover::before {
-            opacity: 1;
-        }
-
         .social-card:hover {
             transform: translateY(-10px) scale(1.02);
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.15);
             box-shadow: 0 12px 40px rgba(108, 60, 224, 0.2);
         }
-
         .social-emoji {
             font-size: 3.6rem;
             display: block;
             margin-bottom: 14px;
             transition: var(--transition);
-            filter: grayscale(0.2);
         }
-
         .social-card:hover .social-emoji {
             transform: scale(1.2) rotate(-6deg);
-            filter: grayscale(0);
         }
-
         .social-label {
             font-weight: 700;
             font-size: 1.1rem;
-            color: var(--text-primary);
         }
-
         .social-handle {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -481,12 +465,11 @@
         .floating-emoji {
             position: absolute;
             font-size: 2rem;
-            opacity: 0.08;
+            opacity: 0.06;
             pointer-events: none;
             z-index: 0;
             animation: float-emoji 12s infinite alternate ease-in-out;
         }
-
         @keyframes float-emoji {
             0% {
                 transform: translate(0, 0) rotate(0deg) scale(1);
@@ -506,13 +489,11 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
-
         footer .heart {
             color: #e040a0;
             display: inline-block;
             animation: pulse-heart 1.8s ease-in-out infinite;
         }
-
         @keyframes pulse-heart {
             0%,
             100% {
@@ -524,112 +505,8 @@
         }
 
         /* ============================================
-                   OVERLAY (Web shooter + welcome)
-                   ============================================ */
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0f;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 1.2s ease;
-            pointer-events: none;
-        }
-
-        #overlay.hidden {
-            opacity: 0;
-        }
-
-        #overlay canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .welcome-text {
-            position: relative;
-            z-index: 10;
-            font-size: clamp(2.8rem, 8vw, 6rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-            opacity: 0;
-            transform: scale(0.8);
-            animation: welcomeFadeIn 1.2s ease forwards 0.4s;
-            text-shadow: 0 0 60px rgba(108, 60, 224, 0.3);
-        }
-
-        @keyframes welcomeFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .welcome-sub {
-            position: relative;
-            z-index: 10;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            margin-top: 10px;
-            opacity: 0;
-            animation: fadeUp 1s ease forwards 0.8s;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============================================
                    RESPONSIVE
                    ============================================ */
-        @media (max-width: 1024px) {
-            #hero .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                align-items: center;
-            }
-
-            .hero-content .sub-headline {
-                max-width: 100%;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            #hero-3d {
-                height: 380px;
-            }
-        }
-
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -647,102 +524,103 @@
                 transition: var(--transition);
                 border-left: 1px solid var(--glass-border);
             }
-
             .nav-links.open {
                 right: 0;
             }
-
             .nav-toggle {
                 display: flex;
                 z-index: 1001;
             }
 
-            .nav-links a {
-                font-size: 1.1rem;
+            #text-30 {
+                text-align: center;
+                padding: 0 5%;
+                top: 25%;
             }
-
-            #hero-3d {
-                height: 300px;
+            #text-60 {
+                text-align: center;
+                padding: 0 5%;
+                top: 65%;
             }
-
-            .connect-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
+            #text-90 {
+                top: 82%;
             }
-
-            .social-card {
-                padding: 28px 16px;
-            }
-
-            .social-emoji {
-                font-size: 2.8rem;
-            }
-
-            .scroll-indicator {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #hero-3d {
-                height: 240px;
-            }
-
-            .hero-content h1 {
-                font-size: 3.2rem;
-            }
-
             .hero-buttons {
+                bottom: 8%;
                 flex-direction: column;
                 align-items: center;
-                width: 100%;
+                width: 90%;
             }
-
             .hero-buttons .btn-primary,
             .hero-buttons .btn-secondary {
                 width: 100%;
                 justify-content: center;
             }
-
+            .connect-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .social-card {
+                padding: 28px 16px;
+            }
+            .social-emoji {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            #text-hero h1 {
+                font-size: 3.2rem;
+            }
             .connect-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 12px;
             }
-
             .social-card {
                 padding: 20px 12px;
             }
-
             .social-emoji {
                 font-size: 2.2rem;
             }
         }
 
         /* ============================================
-                   REVEAL ANIMATIONS
+                   LOADING SCREEN
                    ============================================ */
-        .reveal {
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease;
+        }
+        #loading.hidden {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
         }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--glass-border);
+            border-radius: 50%;
+            border-top-color: var(--accent-1);
+            animation: spin 0.8s linear infinite;
         }
-
-        .reveal-delay-1 {
-            transition-delay: 0.1s;
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
-        .reveal-delay-2 {
-            transition-delay: 0.2s;
-        }
-        .reveal-delay-3 {
-            transition-delay: 0.3s;
-        }
-        .reveal-delay-4 {
-            transition-delay: 0.4s;
+        .loader-text {
+            color: var(--text-secondary);
+            margin-top: 16px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -750,12 +628,20 @@
 <body>
 
     <!-- ============================================
-    OVERLAY (Web Shooter + Welcome)
+    LOADING
+    ============================================ -->
+    <div id="loading">
+        <div class="loader"></div>
+        <div class="loader-text">Loading the experience...</div>
+    </div>
+
+    <!-- ============================================
+    OVERLAY (Web Shooter)
     ============================================ -->
     <div id="overlay">
         <canvas id="webCanvas"></canvas>
         <div class="welcome-text">Welcome to Notty's Site</div>
-        <div class="welcome-sub">✦ web developer · creator · dreamer ✦</div>
+        <div class="welcome-sub">✦ scroll to explore ✦</div>
     </div>
 
     <!-- ============================================
@@ -764,12 +650,10 @@
     <nav id="navbar">
         <div class="container">
             <a href="#" class="logo">Notty<span>_Nitesh</span></a>
-
             <ul class="nav-links" id="navLinks">
-                <li><a href="#hero">Home</a></li>
+                <li><a href="#scroll-container">Home</a></li>
                 <li><a href="#connect">Connect</a></li>
             </ul>
-
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -779,78 +663,81 @@
     </nav>
 
     <!-- ============================================
-    HERO
+    SCROLLYTELLING CONTAINER
     ============================================ -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Portfolio
-                </div>
+    <div id="scroll-container">
 
+        <div id="sticky-canvas">
+            <!-- Three.js canvas will be inserted here -->
+
+            <!-- Scroll Text Overlays -->
+            <div id="text-hero" class="scroll-text visible">
                 <h1>WELCOME</h1>
-                <p class="sub-headline">
-                    Crafting immersive digital experiences with a touch of
-                    futuristic flair. Let's create something extraordinary.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="#connect" class="btn-primary">
-                        Connect with me
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </a>
-                    <a href="#hero" class="btn-secondary">
-                        Explore
-                    </a>
-                </div>
+                <p class="sub">Crafting immersive digital experiences with a touch of futuristic flair.</p>
             </div>
 
-            <div id="hero-3d"></div>
+            <div id="text-30" class="scroll-text">
+                <h2>Every detail matters</h2>
+                <p>Built block by block with precision and care.</p>
+            </div>
+
+            <div id="text-60" class="scroll-text">
+                <h2>Inside the machine</h2>
+                <p>Every component has a purpose. Every piece tells a story.</p>
+            </div>
+
+            <div id="text-90" class="scroll-text">
+                <h2>Ready to create</h2>
+                <p>Let's build something extraordinary together.</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="hero-buttons">
+                <a href="#connect" class="btn-primary">
+                    Connect with me
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="#scroll-container" class="btn-secondary">
+                    Explore
+                </a>
+            </div>
         </div>
 
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="line"></div>
-        </div>
-    </section>
+    </div>
 
     <!-- ============================================
-    CONNECT / SOCIAL
+    CONNECT SECTION
     ============================================ -->
     <section id="connect">
         <div class="container">
-            <div class="reveal">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">
-                    Find me on these platforms — let's chat, share ideas, or just vibe.
-                </p>
-            </div>
+            <h2 class="section-title" style="text-align:center;">Let's Connect</h2>
+            <p class="section-subtitle" style="text-align:center; margin:0 auto 3rem;">
+                Find me on these platforms — let's chat, share ideas, or just vibe.
+            </p>
 
             <div class="connect-grid">
-                <a href="#" target="_blank" class="social-card glass reveal reveal-delay-1">
+                <a href="#" target="_blank" class="social-card">
                     <span class="social-emoji">▶️</span>
                     <div class="social-label">YouTube</div>
                     <div class="social-handle">@nottydev</div>
                 </a>
-                <a href="#" target="_blank" class="social-card glass reveal reveal-delay-2">
+                <a href="#" target="_blank" class="social-card">
                     <span class="social-emoji">💬</span>
                     <div class="social-label">Discord</div>
                     <div class="social-handle">notty#1337</div>
                 </a>
-                <a href="#" target="_blank" class="social-card glass reveal reveal-delay-3">
+                <a href="#" target="_blank" class="social-card">
                     <span class="social-emoji">✈️</span>
                     <div class="social-label">Telegram</div>
                     <div class="social-handle">@notty_dev</div>
                 </a>
-                <a href="mailto:notty@example.com" class="social-card glass reveal reveal-delay-4">
+                <a href="mailto:notty@example.com" class="social-card">
                     <span class="social-emoji">📬</span>
                     <div class="social-label">Email</div>
                     <div class="social-handle">notty@example.com</div>
                 </a>
             </div>
 
-            <!-- Decorative floating emojis -->
             <div class="floating-emoji" style="top:10%; left:5%; animation-duration:14s;">🚀</div>
             <div class="floating-emoji" style="bottom:15%; right:8%; animation-duration:18s; animation-delay:2s;">✨</div>
             <div class="floating-emoji" style="top:40%; right:2%; animation-duration:16s; animation-delay:4s;">⚡</div>
@@ -863,22 +750,19 @@
     ============================================ -->
     <footer>
         <div class="container">
-            <p>
-                &copy; 2026 Notty_Nitesh &mdash; built with
-                <span class="heart">♥</span> and a lot of web fluid.
-            </p>
+            <p>&copy; 2026 Notty_Nitesh &mdash; built with <span class="heart">♥</span> and a lot of web fluid.</p>
         </div>
     </footer>
 
     <!-- ============================================
-    THREE.JS + SCRIPTS
+    THREE.JS
     ============================================ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
     </script>
 
     <script>
         // ============================================
-        // OVERLAY: Web Shooter Canvas Animation (unchanged)
+        // WEB SHOOTER OVERLAY (unchanged)
         // ============================================
         (function initOverlay() {
             const overlay = document.getElementById('overlay');
@@ -890,38 +774,31 @@
             canvas.width = width;
             canvas.height = height;
 
-            const cx = width / 2;
-            const cy = height / 2;
+            const cx = width / 2,
+                cy = height / 2;
+            const maxRadius = Math.max(width, height) * 0.9;
 
             const lines = [];
             const numLines = 80;
-            const maxRadius = Math.max(width, height) * 0.9;
-
             for (let i = 0; i < numLines; i++) {
                 const angle = (i / numLines) * Math.PI * 2 + (Math.random() - 0.5) * 0.2;
-                const speed = 0.02 + Math.random() * 0.04;
-                const thickness = 0.5 + Math.random() * 2;
                 lines.push({
-                    angle: angle,
+                    angle,
                     radius: 0,
-                    speed: speed,
-                    thickness: thickness,
-                    maxRadius: maxRadius * (0.6 + Math.random() * 0.4),
-                    offset: Math.random() * 100,
+                    speed: 0.02 + Math.random() * 0.04,
+                    thickness: 0.5 + Math.random() * 2,
+                    maxRadius: maxRadius * (0.6 + Math.random() * 0.4)
                 });
             }
 
             const strands = [];
             for (let i = 0; i < 20; i++) {
-                const angle = Math.random() * Math.PI * 2;
-                const length = 200 + Math.random() * 400;
-                const curve = (Math.random() - 0.5) * 0.02;
                 strands.push({
-                    angle: angle,
-                    length: length,
-                    curve: curve,
+                    angle: Math.random() * Math.PI * 2,
+                    length: 200 + Math.random() * 400,
+                    curve: (Math.random() - 0.5) * 0.02,
                     progress: 0,
-                    speed: 0.02 + Math.random() * 0.03,
+                    speed: 0.02 + Math.random() * 0.03
                 });
             }
 
@@ -942,18 +819,16 @@
 
                 for (let line of lines) {
                     const r = line.radius;
-                    const angle = line.angle;
-                    const x = cx + Math.cos(angle) * r;
-                    const y = cy + Math.sin(angle) * r;
-
+                    const x = cx + Math.cos(line.angle) * r;
+                    const y = cy + Math.sin(line.angle) * r;
                     const alpha = Math.min(1, r / 100) * 0.9;
-                    const width = line.thickness * (1 - r / line.maxRadius * 0.6);
+                    const w = line.thickness * (1 - r / line.maxRadius * 0.6);
 
                     ctx.beginPath();
                     ctx.moveTo(cx, cy);
                     ctx.lineTo(x, y);
                     ctx.strokeStyle = `rgba(200, 180, 255, ${alpha * 0.7})`;
-                    ctx.lineWidth = Math.max(0.5, width);
+                    ctx.lineWidth = Math.max(0.5, w);
                     ctx.stroke();
                     ctx.shadowColor = 'rgba(150, 100, 255, 0.15)';
                     ctx.shadowBlur = 20;
@@ -964,16 +839,12 @@
                 for (let strand of strands) {
                     const p = strand.progress;
                     if (p <= 0) continue;
-                    const angle = strand.angle;
-                    const length = strand.length * p;
-                    const curve = strand.curve;
-
                     ctx.beginPath();
                     const steps = 20;
                     for (let i = 0; i <= steps; i++) {
                         const t = i / steps;
-                        const r = t * length;
-                        const a = angle + curve * t * 5;
+                        const r = t * strand.length * p;
+                        const a = strand.angle + strand.curve * t * 5;
                         const x = cx + Math.cos(a) * r;
                         const y = cy + Math.sin(a) * r;
                         if (i === 0) ctx.moveTo(x, y);
@@ -993,10 +864,9 @@
                     const x = cx + Math.cos(angle) * dist;
                     const y = cy + Math.sin(angle) * dist;
                     const size = 2 + Math.random() * 4;
-                    const alpha = 0.5 + Math.random() * 0.5;
                     ctx.beginPath();
                     ctx.arc(x, y, size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, 230, 255, ${alpha * 0.8})`;
+                    ctx.fillStyle = `rgba(255, 230, 255, ${(0.5 + Math.random() * 0.5) * 0.8})`;
                     ctx.shadowColor = 'rgba(200, 150, 255, 0.6)';
                     ctx.shadowBlur = 30;
                     ctx.fill();
@@ -1011,7 +881,6 @@
                         line.angle += (Math.random() - 0.5) * 0.2;
                     }
                 }
-
                 for (let strand of strands) {
                     strand.progress = Math.min(1, strand.progress + strand.speed * dt * 0.8);
                     if (strand.progress >= 1) {
@@ -1026,19 +895,14 @@
             function animateOverlay() {
                 const elapsed = Date.now() - startTime;
                 const progress = Math.min(1, elapsed / duration);
-
                 drawWeb(progress);
-
                 if (progress < 1) {
                     requestAnimationFrame(animateOverlay);
                 } else {
                     overlay.classList.add('hidden');
-                    setTimeout(() => {
-                        overlay.style.display = 'none';
-                    }, 1200);
+                    setTimeout(() => { overlay.style.display = 'none'; }, 1200);
                 }
             }
-
             animateOverlay();
 
             window.addEventListener('resize', () => {
@@ -1073,31 +937,15 @@
         });
 
         // ============================================
-        // REVEAL ON SCROLL
+        // SCROLLYTELLING — THREE.JS MINECRAFT CHARACTER
         // ============================================
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.12,
-                rootMargin: '0px 0px -40px 0px',
-            }
-        );
-
-        revealElements.forEach((el) => revealObserver.observe(el));
-
-        // ============================================
-        // THREE.JS — ANIMATED MINECRAFT CHARACTER
-        // ============================================
-        (function initMinecraft() {
-            const container = document.getElementById('hero-3d');
+        (function initScrollytelling() {
+            const container = document.getElementById('sticky-canvas');
             if (!container) return;
+
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            container.appendChild(canvas);
 
             const width = container.clientWidth;
             const height = container.clientHeight;
@@ -1107,11 +955,12 @@
 
             // Camera
             const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-            camera.position.set(2.5, 2, 5);
+            camera.position.set(2.5, 1.8, 4.5);
             camera.lookAt(0, 0.5, 0);
 
             // Renderer
             const renderer = new THREE.WebGLRenderer({
+                canvas: canvas,
                 alpha: true,
                 antialias: true,
             });
@@ -1121,7 +970,6 @@
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.2;
-            container.appendChild(renderer.domElement);
 
             // Lights
             const ambient = new THREE.AmbientLight(0x40406b, 0.6);
@@ -1142,14 +990,10 @@
             rim.position.set(0, -1, -4);
             scene.add(rim);
 
-            // Ground plane (invisible, just for shadow)
+            // Ground (for shadow)
             const plane = new THREE.Mesh(
                 new THREE.PlaneGeometry(10, 10),
-                new THREE.ShadowMaterial({
-                    color: 0x000000,
-                    opacity: 0.2,
-                    transparent: true,
-                })
+                new THREE.ShadowMaterial({ color: 0x000000, opacity: 0.2, transparent: true })
             );
             plane.rotation.x = -Math.PI / 2;
             plane.position.y = -0.6;
@@ -1157,11 +1001,10 @@
             scene.add(plane);
 
             // ========================================
-            // Build Minecraft Character
+            // BUILD MINECRAFT CHARACTER
             // ========================================
             const character = new THREE.Group();
 
-            // Colors
             const skin = 0xf0d8b0;
             const shirt = 0x4a90d9;
             const pants = 0x2c3e6b;
@@ -1176,7 +1019,7 @@
             head.castShadow = true;
             character.add(head);
 
-            // Eyes (small black boxes)
+            // Eyes
             const eyeMat = new THREE.MeshStandardMaterial({ color: eye });
             const eyeGeo = new THREE.BoxGeometry(0.08, 0.08, 0.08);
             const eyeL = new THREE.Mesh(eyeGeo, eyeMat);
@@ -1186,14 +1029,14 @@
             eyeR.position.set(0.2, 0.1, -0.31);
             head.add(eyeR);
 
-            // Mouth (small line – we'll use a box)
+            // Mouth
             const mouthMat = new THREE.MeshStandardMaterial({ color: 0x5a3a2a });
             const mouthGeo = new THREE.BoxGeometry(0.2, 0.04, 0.05);
             const mouth = new THREE.Mesh(mouthGeo, mouthMat);
             mouth.position.set(0, -0.1, -0.31);
             head.add(mouth);
 
-            // Body (shirt)
+            // Body
             const bodyGeo = new THREE.BoxGeometry(0.6, 0.7, 0.4);
             const bodyMat = new THREE.MeshStandardMaterial({ color: shirt, roughness: 0.6 });
             const body = new THREE.Mesh(bodyGeo, bodyMat);
@@ -1204,13 +1047,10 @@
             // Arms
             const armGeo = new THREE.BoxGeometry(0.2, 0.6, 0.2);
             const armMat = new THREE.MeshStandardMaterial({ color: skin, roughness: 0.4 });
-
-            // Left arm
             const leftArm = new THREE.Mesh(armGeo, armMat);
             leftArm.position.set(-0.45, 0.8, 0);
             leftArm.castShadow = true;
             character.add(leftArm);
-            // Right arm
             const rightArm = new THREE.Mesh(armGeo, armMat);
             rightArm.position.set(0.45, 0.8, 0);
             rightArm.castShadow = true;
@@ -1219,18 +1059,16 @@
             // Legs
             const legGeo = new THREE.BoxGeometry(0.2, 0.6, 0.2);
             const legMat = new THREE.MeshStandardMaterial({ color: pants, roughness: 0.7 });
-            // Left leg
             const leftLeg = new THREE.Mesh(legGeo, legMat);
             leftLeg.position.set(-0.2, 0.1, 0);
             leftLeg.castShadow = true;
             character.add(leftLeg);
-            // Right leg
             const rightLeg = new THREE.Mesh(legGeo, legMat);
             rightLeg.position.set(0.2, 0.1, 0);
             rightLeg.castShadow = true;
             character.add(rightLeg);
 
-            // Shoes (small boxes on legs)
+            // Shoes
             const shoeMat = new THREE.MeshStandardMaterial({ color: shoes, roughness: 0.8 });
             const shoeGeo = new THREE.BoxGeometry(0.24, 0.1, 0.3);
             const shoeL = new THREE.Mesh(shoeGeo, shoeMat);
@@ -1240,22 +1078,45 @@
             shoeR.position.set(0.2, -0.1, 0.06);
             character.add(shoeR);
 
-            // Add character to scene
             scene.add(character);
 
-            // Store references for animation
+            // Store parts for animation
             const parts = {
-                leftArm: leftArm,
-                rightArm: rightArm,
-                leftLeg: leftLeg,
-                rightLeg: rightLeg,
-                head: head,
-                body: body,
+                leftArm,
+                rightArm,
+                leftLeg,
+                rightLeg,
+                head,
+                body,
+                shoeL,
+                shoeR
             };
 
-            // ========================================
-            // Mouse tracking (subtle rotation)
-            // ========================================
+            // Original positions (for explosion)
+            const origPos = {
+                leftArm: leftArm.position.clone(),
+                rightArm: rightArm.position.clone(),
+                leftLeg: leftLeg.position.clone(),
+                rightLeg: rightLeg.position.clone(),
+                head: head.position.clone(),
+                body: body.position.clone(),
+                shoeL: shoeL.position.clone(),
+                shoeR: shoeR.position.clone(),
+            };
+
+            // Explosion offsets (where parts move to when "exploded")
+            const explodeOffsets = {
+                leftArm: new THREE.Vector3(-1.2, 0.8, -0.2),
+                rightArm: new THREE.Vector3(1.2, 0.8, -0.2),
+                leftLeg: new THREE.Vector3(-0.5, -0.2, 0.6),
+                rightLeg: new THREE.Vector3(0.5, -0.2, 0.6),
+                head: new THREE.Vector3(0, 2.2, 0.2),
+                body: new THREE.Vector3(0, 1.4, -0.4),
+                shoeL: new THREE.Vector3(-0.5, -0.6, 0.8),
+                shoeR: new THREE.Vector3(0.5, -0.6, 0.8),
+            };
+
+            // Mouse tracking
             let mouseX = 0,
                 mouseY = 0,
                 targetX = 0,
@@ -1279,7 +1140,43 @@
             }, { passive: true });
 
             // ========================================
-            // Resize
+            // SCROLL LOGIC
+            // ========================================
+            const scrollContainer = document.getElementById('scroll-container');
+            let scrollProgress = 0;
+
+            function updateScroll() {
+                const rect = scrollContainer.getBoundingClientRect();
+                const totalHeight = scrollContainer.scrollHeight - window.innerHeight;
+                const scrolled = -rect.top;
+                scrollProgress = Math.max(0, Math.min(1, scrolled / totalHeight));
+            }
+
+            window.addEventListener('scroll', updateScroll, { passive: true });
+            updateScroll();
+
+            // ========================================
+            // TEXT OVERLAY LOGIC
+            // ========================================
+            function updateTexts(progress) {
+                const texts = [
+                    { id: 'text-hero', range: [0, 0.15] },
+                    { id: 'text-30', range: [0.25, 0.45] },
+                    { id: 'text-60', range: [0.55, 0.75] },
+                    { id: 'text-90', range: [0.82, 1.0] },
+                ];
+
+                texts.forEach(({ id, range }) => {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    const [start, end] = range;
+                    const isVisible = progress >= start && progress <= end;
+                    el.classList.toggle('visible', isVisible);
+                });
+            }
+
+            // ========================================
+            // RESIZE
             // ========================================
             function resize() {
                 const w = container.clientWidth;
@@ -1291,7 +1188,14 @@
             window.addEventListener('resize', resize);
 
             // ========================================
-            // Animation loop
+            // HIDE LOADING
+            // ========================================
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 800);
+
+            // ========================================
+            // ANIMATION LOOP
             // ========================================
             const clock = new THREE.Clock();
 
@@ -1300,37 +1204,63 @@
 
                 const t = clock.getElapsedTime();
 
-                // Smooth mouse follow
+                // Smooth mouse
                 targetX += (mouseX - targetX) * 0.04;
                 targetY += (mouseY - targetY) * 0.04;
 
-                // Walking cycle (swing arms and legs)
-                const swing = Math.sin(t * 2.5) * 0.6;
-                const swing2 = Math.sin(t * 2.5 + Math.PI) * 0.6;
-
-                // Arms
-                parts.leftArm.rotation.x = swing * 0.3;
-                parts.rightArm.rotation.x = swing2 * 0.3;
-
-                // Legs
-                parts.leftLeg.rotation.x = swing2 * 0.3;
-                parts.rightLeg.rotation.x = swing * 0.3;
-
-                // Slight body bob
-                character.position.y = Math.sin(t * 2.5) * 0.03;
-
-                // Rotate entire character based on mouse
+                // Character rotation based on mouse
                 character.rotation.y = targetX * 0.8;
                 character.rotation.x = targetY * 0.2;
 
-                // Head bob / look
-                parts.head.rotation.x = Math.sin(t * 1.2) * 0.04;
-                parts.head.rotation.y = Math.sin(t * 0.8) * 0.04;
+                // Head subtle movement
+                parts.head.rotation.x = Math.sin(t * 0.8) * 0.04;
+                parts.head.rotation.y = Math.sin(t * 0.6) * 0.04;
 
-                // Camera orbits slightly (optional)
-                camera.position.x = 2.5 + Math.sin(t * 0.1) * 0.3;
-                camera.position.z = 5 + Math.sin(t * 0.15) * 0.3;
-                camera.lookAt(0, 0.6, 0);
+                // ========================================
+                // SCROLL-DRIVEN EXPLOSION
+                // ========================================
+                const progress = scrollProgress;
+
+                // Explosion curve: 0→1 at 30%, 1→0 at 90%
+                let explodeAmount = 0;
+                if (progress > 0.25 && progress < 0.85) {
+                    explodeAmount = Math.sin((progress - 0.25) / 0.6 * Math.PI);
+                } else if (progress >= 0.85) {
+                    explodeAmount = Math.sin((0.85 - 0.25) / 0.6 * Math.PI) * (1 - (progress - 0.85) / 0.15);
+                }
+                explodeAmount = Math.max(0, Math.min(1, explodeAmount));
+
+                // Apply explosion offsets
+                Object.keys(origPos).forEach(key => {
+                    const part = parts[key];
+                    if (!part) return;
+                    const orig = origPos[key];
+                    const offset = explodeOffsets[key];
+                    if (offset) {
+                        part.position.x = orig.x + offset.x * explodeAmount;
+                        part.position.y = orig.y + offset.y * explodeAmount;
+                        part.position.z = orig.z + offset.z * explodeAmount;
+                    }
+                });
+
+                // Add rotation to parts when exploded
+                const rotAmount = explodeAmount * 0.5;
+                parts.leftArm.rotation.x = -0.3 + rotAmount * 0.8;
+                parts.rightArm.rotation.x = 0.3 - rotAmount * 0.8;
+                parts.leftLeg.rotation.x = 0.3 - rotAmount * 0.6;
+                parts.rightLeg.rotation.x = -0.3 + rotAmount * 0.6;
+
+                // Body bob (idle + explosion lift)
+                const bob = Math.sin(t * 2.5) * 0.03;
+                character.position.y = bob + explodeAmount * 0.1;
+
+                // Camera slight orbit
+                camera.position.x = 2.5 + Math.sin(t * 0.08 + progress * 0.5) * 0.5;
+                camera.position.z = 4.5 + Math.sin(t * 0.1 + progress * 0.3) * 0.3;
+                camera.lookAt(0, 0.5 + explodeAmount * 0.2, 0);
+
+                // Update text overlays
+                updateTexts(progress);
 
                 renderer.render(scene, camera);
             }
@@ -1340,6 +1270,7 @@
             // Cleanup
             return () => {
                 window.removeEventListener('resize', resize);
+                window.removeEventListener('scroll', updateScroll);
                 renderer.dispose();
             };
         })();
