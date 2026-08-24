@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notty · 3D Portfolio</title>
+    <title>Notty_Nitesh · Portfolio</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,7 @@
 
     <style>
         /* ============================================
-                   CSS RESET & BASE
+                   CSS RESET & BASE (same as before)
                    ============================================ */
         *,
         *::before,
@@ -72,20 +72,13 @@
             color: inherit;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ============================================
-                   GLASSMORPHISM UTILITY
-                   ============================================ */
+        /* Glassmorphism */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: blur(20px) saturate(1.4);
@@ -99,9 +92,7 @@
             border-radius: var(--radius-sm);
         }
 
-        /* ============================================
-                   SECTION TITLES
-                   ============================================ */
+        /* Section titles */
         .section-title {
             font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 800;
@@ -120,9 +111,7 @@
             margin-bottom: 3rem;
         }
 
-        /* ============================================
-                   NAVIGATION
-                   ============================================ */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -251,6 +240,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            align-items: flex-start;
         }
 
         .hero-badge {
@@ -290,20 +280,18 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-size: clamp(4rem, 10vw, 7rem);
             font-weight: 800;
             line-height: 1.05;
             letter-spacing: -0.04em;
-        }
-
-        .hero-content h1 .highlight {
             background: var(--gradient-1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 60px rgba(108, 60, 224, 0.2);
         }
 
-        .hero-content p {
+        .hero-content .sub-headline {
             font-size: 1.15rem;
             color: var(--text-secondary);
             max-width: 480px;
@@ -360,7 +348,7 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Hero 3D Canvas */
+        /* Hero 3D Canvas (Minecraft character) */
         #hero-3d {
             width: 100%;
             height: 500px;
@@ -376,7 +364,6 @@
             height: 100% !important;
         }
 
-        /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -490,7 +477,7 @@
             margin-top: 4px;
         }
 
-        /* floating emoji background (decorative) */
+        /* Floating emojis */
         .floating-emoji {
             position: absolute;
             font-size: 2rem;
@@ -630,7 +617,7 @@
                 align-items: center;
             }
 
-            .hero-content p {
+            .hero-content .sub-headline {
                 max-width: 100%;
             }
 
@@ -702,7 +689,7 @@
             }
 
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 3.2rem;
             }
 
             .hero-buttons {
@@ -732,7 +719,7 @@
         }
 
         /* ============================================
-                   ANIMATION HELPERS
+                   REVEAL ANIMATIONS
                    ============================================ */
         .reveal {
             opacity: 0;
@@ -776,7 +763,7 @@
     ============================================ -->
     <nav id="navbar">
         <div class="container">
-            <a href="#" class="logo">Not<span>ty</span></a>
+            <a href="#" class="logo">Notty<span>_Nitesh</span></a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#hero">Home</a></li>
@@ -799,15 +786,11 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Always building
+                    Portfolio
                 </div>
 
-                <h1>
-                    I'm <span class="highlight">Notty</span><br />
-                    <span style="font-size:0.6em; background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">web &amp; 3D</span>
-                </h1>
-
-                <p>
+                <h1>WELCOME</h1>
+                <p class="sub-headline">
                     Crafting immersive digital experiences with a touch of
                     futuristic flair. Let's create something extraordinary.
                 </p>
@@ -845,25 +828,21 @@
             </div>
 
             <div class="connect-grid">
-                <!-- YouTube -->
                 <a href="#" target="_blank" class="social-card glass reveal reveal-delay-1">
                     <span class="social-emoji">▶️</span>
                     <div class="social-label">YouTube</div>
                     <div class="social-handle">@nottydev</div>
                 </a>
-                <!-- Discord -->
                 <a href="#" target="_blank" class="social-card glass reveal reveal-delay-2">
                     <span class="social-emoji">💬</span>
                     <div class="social-label">Discord</div>
                     <div class="social-handle">notty#1337</div>
                 </a>
-                <!-- Telegram -->
                 <a href="#" target="_blank" class="social-card glass reveal reveal-delay-3">
                     <span class="social-emoji">✈️</span>
                     <div class="social-label">Telegram</div>
                     <div class="social-handle">@notty_dev</div>
                 </a>
-                <!-- Email -->
                 <a href="mailto:notty@example.com" class="social-card glass reveal reveal-delay-4">
                     <span class="social-emoji">📬</span>
                     <div class="social-label">Email</div>
@@ -885,7 +864,7 @@
     <footer>
         <div class="container">
             <p>
-                &copy; 2026 Notty &mdash; built with
+                &copy; 2026 Notty_Nitesh &mdash; built with
                 <span class="heart">♥</span> and a lot of web fluid.
             </p>
         </div>
@@ -899,7 +878,7 @@
 
     <script>
         // ============================================
-        // OVERLAY: Web Shooter Canvas Animation
+        // OVERLAY: Web Shooter Canvas Animation (unchanged)
         // ============================================
         (function initOverlay() {
             const overlay = document.getElementById('overlay');
@@ -911,17 +890,13 @@
             canvas.width = width;
             canvas.height = height;
 
-            // Center of the screen (shooter origin)
             const cx = width / 2;
             const cy = height / 2;
 
-            // We'll draw a web-shooter effect: multiple lines radiating from center
-            // with a spider-web pattern and some "web" streaks.
             const lines = [];
             const numLines = 80;
             const maxRadius = Math.max(width, height) * 0.9;
 
-            // Each line: angle, current radius, speed, thickness
             for (let i = 0; i < numLines; i++) {
                 const angle = (i / numLines) * Math.PI * 2 + (Math.random() - 0.5) * 0.2;
                 const speed = 0.02 + Math.random() * 0.04;
@@ -936,7 +911,6 @@
                 });
             }
 
-            // Additional web "strands" that curve
             const strands = [];
             for (let i = 0; i < 20; i++) {
                 const angle = Math.random() * Math.PI * 2;
@@ -952,19 +926,17 @@
             }
 
             let startTime = Date.now();
-            const duration = 2200; // ms
+            const duration = 2200;
 
             function drawWeb(progress) {
                 ctx.clearRect(0, 0, width, height);
 
-                // Draw dark background with slight vignette
                 const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxRadius);
                 grad.addColorStop(0, 'rgba(20, 10, 40, 0.9)');
                 grad.addColorStop(1, 'rgba(0,0,0,0.95)');
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, width, height);
 
-                // Draw web lines (radial)
                 ctx.lineCap = 'round';
                 ctx.lineJoin = 'round';
 
@@ -983,15 +955,12 @@
                     ctx.strokeStyle = `rgba(200, 180, 255, ${alpha * 0.7})`;
                     ctx.lineWidth = Math.max(0.5, width);
                     ctx.stroke();
-
-                    // Glow effect
                     ctx.shadowColor = 'rgba(150, 100, 255, 0.15)';
                     ctx.shadowBlur = 20;
                     ctx.stroke();
                     ctx.shadowBlur = 0;
                 }
 
-                // Draw curved strands (web shooter "webs")
                 for (let strand of strands) {
                     const p = strand.progress;
                     if (p <= 0) continue;
@@ -1018,7 +987,6 @@
                     ctx.shadowBlur = 0;
                 }
 
-                // Add a few bright "web shooter" particles at center
                 for (let i = 0; i < 6; i++) {
                     const angle = Math.random() * Math.PI * 2;
                     const dist = 10 + Math.random() * 30 * progress;
@@ -1035,7 +1003,6 @@
                     ctx.shadowBlur = 0;
                 }
 
-                // Update radii and progress
                 const dt = 1;
                 for (let line of lines) {
                     line.radius += line.speed * dt * 6 * progress;
@@ -1065,7 +1032,6 @@
                 if (progress < 1) {
                     requestAnimationFrame(animateOverlay);
                 } else {
-                    // Fade out overlay
                     overlay.classList.add('hidden');
                     setTimeout(() => {
                         overlay.style.display = 'none';
@@ -1073,10 +1039,8 @@
                 }
             }
 
-            // Start animation
             animateOverlay();
 
-            // Resize handler
             window.addEventListener('resize', () => {
                 width = window.innerWidth;
                 height = window.innerHeight;
@@ -1129,130 +1093,169 @@
         revealElements.forEach((el) => revealObserver.observe(el));
 
         // ============================================
-        // THREE.JS — 3D HERO (same as before, but with subtle adjustments)
+        // THREE.JS — ANIMATED MINECRAFT CHARACTER
         // ============================================
-        (function initHero3D() {
+        (function initMinecraft() {
             const container = document.getElementById('hero-3d');
             if (!container) return;
 
             const width = container.clientWidth;
             const height = container.clientHeight;
 
+            // Scene
             const scene = new THREE.Scene();
 
-            const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
-            camera.position.set(0, 0, 7);
+            // Camera
+            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+            camera.position.set(2.5, 2, 5);
+            camera.lookAt(0, 0.5, 0);
 
+            // Renderer
             const renderer = new THREE.WebGLRenderer({
                 alpha: true,
                 antialias: true,
             });
             renderer.setSize(width, height);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.2;
             container.appendChild(renderer.domElement);
 
-            const ambientLight = new THREE.AmbientLight(0x40406b, 0.6);
-            scene.add(ambientLight);
+            // Lights
+            const ambient = new THREE.AmbientLight(0x40406b, 0.6);
+            scene.add(ambient);
 
-            const keyLight = new THREE.DirectionalLight(0x6c3ce0, 1.8);
-            keyLight.position.set(2, 3, 4);
-            scene.add(keyLight);
+            const key = new THREE.DirectionalLight(0xffeedd, 1.2);
+            key.position.set(3, 5, 4);
+            key.castShadow = true;
+            key.shadow.mapSize.width = 1024;
+            key.shadow.mapSize.height = 1024;
+            scene.add(key);
 
-            const fillLight = new THREE.DirectionalLight(0xe040a0, 0.8);
-            fillLight.position.set(-3, 1, 2);
-            scene.add(fillLight);
+            const fill = new THREE.DirectionalLight(0x4488ff, 0.5);
+            fill.position.set(-3, 2, 2);
+            scene.add(fill);
 
-            const rimLight = new THREE.DirectionalLight(0x40b0e0, 0.6);
-            rimLight.position.set(0, -2, -4);
-            scene.add(rimLight);
+            const rim = new THREE.DirectionalLight(0xffaa88, 0.4);
+            rim.position.set(0, -1, -4);
+            scene.add(rim);
 
-            // Main shape: Icosahedron with glowing edges
-            const geo = new THREE.IcosahedronGeometry(1.4, 1);
-            const mat = new THREE.MeshPhysicalMaterial({
-                color: 0x6c3ce0,
-                metalness: 0.2,
-                roughness: 0.3,
-                emissive: 0x3c1c80,
-                emissiveIntensity: 0.2,
-                clearcoat: 0.8,
-                clearcoatRoughness: 0.2,
-                transparent: true,
-                opacity: 0.95,
-            });
-            const mesh = new THREE.Mesh(geo, mat);
-            scene.add(mesh);
+            // Ground plane (invisible, just for shadow)
+            const plane = new THREE.Mesh(
+                new THREE.PlaneGeometry(10, 10),
+                new THREE.ShadowMaterial({
+                    color: 0x000000,
+                    opacity: 0.2,
+                    transparent: true,
+                })
+            );
+            plane.rotation.x = -Math.PI / 2;
+            plane.position.y = -0.6;
+            plane.receiveShadow = true;
+            scene.add(plane);
 
-            // Wireframe overlay
-            const wireGeo = new THREE.IcosahedronGeometry(1.45, 1);
-            const wireMat = new THREE.MeshBasicMaterial({
-                color: 0x40b0e0,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.15,
-            });
-            const wire = new THREE.Mesh(wireGeo, wireMat);
-            scene.add(wire);
+            // ========================================
+            // Build Minecraft Character
+            // ========================================
+            const character = new THREE.Group();
 
-            // Orbiting particles
-            const particleCount = 400;
-            const positions = new Float32Array(particleCount * 3);
-            const sizes = new Float32Array(particleCount);
-            const speeds = new Float32Array(particleCount);
-            const offsets = new Float32Array(particleCount);
+            // Colors
+            const skin = 0xf0d8b0;
+            const shirt = 0x4a90d9;
+            const pants = 0x2c3e6b;
+            const shoes = 0x5a4a3a;
+            const eye = 0x000000;
 
-            for (let i = 0; i < particleCount; i++) {
-                const theta = Math.random() * Math.PI * 2;
-                const phi = Math.acos(2 * Math.random() - 1);
-                const radius = 2.0 + Math.random() * 1.8;
-                positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-                positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-                positions[i * 3 + 2] = radius * Math.cos(phi);
-                sizes[i] = 0.02 + Math.random() * 0.05;
-                speeds[i] = 0.15 + Math.random() * 0.35;
-                offsets[i] = Math.random() * Math.PI * 2;
-            }
+            // Head
+            const headGeo = new THREE.BoxGeometry(0.6, 0.6, 0.6);
+            const headMat = new THREE.MeshStandardMaterial({ color: skin, roughness: 0.4, metalness: 0.1 });
+            const head = new THREE.Mesh(headGeo, headMat);
+            head.position.y = 1.3;
+            head.castShadow = true;
+            character.add(head);
 
-            const particleGeo = new THREE.BufferGeometry();
-            particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            particleGeo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+            // Eyes (small black boxes)
+            const eyeMat = new THREE.MeshStandardMaterial({ color: eye });
+            const eyeGeo = new THREE.BoxGeometry(0.08, 0.08, 0.08);
+            const eyeL = new THREE.Mesh(eyeGeo, eyeMat);
+            eyeL.position.set(-0.2, 0.1, -0.31);
+            head.add(eyeL);
+            const eyeR = new THREE.Mesh(eyeGeo, eyeMat);
+            eyeR.position.set(0.2, 0.1, -0.31);
+            head.add(eyeR);
 
-            const particleMat = new THREE.PointsMaterial({
-                color: 0xa080ff,
-                size: 0.05,
-                transparent: true,
-                opacity: 0.7,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false,
-            });
-            const particles = new THREE.Points(particleGeo, particleMat);
-            scene.add(particles);
+            // Mouth (small line – we'll use a box)
+            const mouthMat = new THREE.MeshStandardMaterial({ color: 0x5a3a2a });
+            const mouthGeo = new THREE.BoxGeometry(0.2, 0.04, 0.05);
+            const mouth = new THREE.Mesh(mouthGeo, mouthMat);
+            mouth.position.set(0, -0.1, -0.31);
+            head.add(mouth);
 
-            const particleData = {
-                positions: positions.slice(),
-                speeds: speeds,
-                offsets: offsets,
-                geometry: particleGeo,
+            // Body (shirt)
+            const bodyGeo = new THREE.BoxGeometry(0.6, 0.7, 0.4);
+            const bodyMat = new THREE.MeshStandardMaterial({ color: shirt, roughness: 0.6 });
+            const body = new THREE.Mesh(bodyGeo, bodyMat);
+            body.position.y = 0.7;
+            body.castShadow = true;
+            character.add(body);
+
+            // Arms
+            const armGeo = new THREE.BoxGeometry(0.2, 0.6, 0.2);
+            const armMat = new THREE.MeshStandardMaterial({ color: skin, roughness: 0.4 });
+
+            // Left arm
+            const leftArm = new THREE.Mesh(armGeo, armMat);
+            leftArm.position.set(-0.45, 0.8, 0);
+            leftArm.castShadow = true;
+            character.add(leftArm);
+            // Right arm
+            const rightArm = new THREE.Mesh(armGeo, armMat);
+            rightArm.position.set(0.45, 0.8, 0);
+            rightArm.castShadow = true;
+            character.add(rightArm);
+
+            // Legs
+            const legGeo = new THREE.BoxGeometry(0.2, 0.6, 0.2);
+            const legMat = new THREE.MeshStandardMaterial({ color: pants, roughness: 0.7 });
+            // Left leg
+            const leftLeg = new THREE.Mesh(legGeo, legMat);
+            leftLeg.position.set(-0.2, 0.1, 0);
+            leftLeg.castShadow = true;
+            character.add(leftLeg);
+            // Right leg
+            const rightLeg = new THREE.Mesh(legGeo, legMat);
+            rightLeg.position.set(0.2, 0.1, 0);
+            rightLeg.castShadow = true;
+            character.add(rightLeg);
+
+            // Shoes (small boxes on legs)
+            const shoeMat = new THREE.MeshStandardMaterial({ color: shoes, roughness: 0.8 });
+            const shoeGeo = new THREE.BoxGeometry(0.24, 0.1, 0.3);
+            const shoeL = new THREE.Mesh(shoeGeo, shoeMat);
+            shoeL.position.set(-0.2, -0.1, 0.06);
+            character.add(shoeL);
+            const shoeR = new THREE.Mesh(shoeGeo, shoeMat);
+            shoeR.position.set(0.2, -0.1, 0.06);
+            character.add(shoeR);
+
+            // Add character to scene
+            scene.add(character);
+
+            // Store references for animation
+            const parts = {
+                leftArm: leftArm,
+                rightArm: rightArm,
+                leftLeg: leftLeg,
+                rightLeg: rightLeg,
+                head: head,
+                body: body,
             };
 
-            // Floating rings
-            const rings = [];
-            for (let i = 0; i < 3; i++) {
-                const rGeo = new THREE.TorusGeometry(1.8 + i * 0.4, 0.015, 16, 60);
-                const rMat = new THREE.MeshBasicMaterial({
-                    color: i === 0 ? 0x6c3ce0 : i === 1 ? 0xe040a0 : 0x40b0e0,
-                    transparent: true,
-                    opacity: 0.12 + i * 0.04,
-                });
-                const ring = new THREE.Mesh(rGeo, rMat);
-                ring.rotation.x = Math.PI / 3 + i * 0.3;
-                ring.rotation.y = i * 0.5;
-                scene.add(ring);
-                rings.push(ring);
-            }
-
-            // Mouse tracking
+            // ========================================
+            // Mouse tracking (subtle rotation)
+            // ========================================
             let mouseX = 0,
                 mouseY = 0,
                 targetX = 0,
@@ -1262,8 +1265,8 @@
                 const rect = container.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width - 0.5;
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
-                mouseX = x * 0.4;
-                mouseY = y * 0.4;
+                mouseX = x * 0.5;
+                mouseY = y * 0.3;
             });
 
             container.addEventListener('touchmove', (e) => {
@@ -1271,10 +1274,13 @@
                 const rect = container.getBoundingClientRect();
                 const x = (touch.clientX - rect.left) / rect.width - 0.5;
                 const y = (touch.clientY - rect.top) / rect.height - 0.5;
-                mouseX = x * 0.4;
-                mouseY = y * 0.4;
+                mouseX = x * 0.5;
+                mouseY = y * 0.3;
             }, { passive: true });
 
+            // ========================================
+            // Resize
+            // ========================================
             function resize() {
                 const w = container.clientWidth;
                 const h = container.clientHeight;
@@ -1284,6 +1290,9 @@
             }
             window.addEventListener('resize', resize);
 
+            // ========================================
+            // Animation loop
+            // ========================================
             const clock = new THREE.Clock();
 
             function animate() {
@@ -1291,54 +1300,44 @@
 
                 const t = clock.getElapsedTime();
 
+                // Smooth mouse follow
                 targetX += (mouseX - targetX) * 0.04;
                 targetY += (mouseY - targetY) * 0.04;
 
-                mesh.rotation.x = t * 0.2 + targetY * 0.3;
-                mesh.rotation.y = t * 0.35 + targetX * 0.3;
-                mesh.rotation.z = t * 0.08;
+                // Walking cycle (swing arms and legs)
+                const swing = Math.sin(t * 2.5) * 0.6;
+                const swing2 = Math.sin(t * 2.5 + Math.PI) * 0.6;
 
-                wire.rotation.x = mesh.rotation.x;
-                wire.rotation.y = mesh.rotation.y;
-                wire.rotation.z = mesh.rotation.z;
+                // Arms
+                parts.leftArm.rotation.x = swing * 0.3;
+                parts.rightArm.rotation.x = swing2 * 0.3;
 
-                mesh.position.y = Math.sin(t * 0.5) * 0.15;
-                wire.position.y = mesh.position.y;
+                // Legs
+                parts.leftLeg.rotation.x = swing2 * 0.3;
+                parts.rightLeg.rotation.x = swing * 0.3;
 
-                // Animate particles
-                const pos = particleData.geometry.attributes.position.array;
-                const orig = particleData.positions;
-                for (let i = 0; i < particleCount; i++) {
-                    const i3 = i * 3;
-                    const angle = t * 0.12 * particleData.speeds[i] + particleData.offsets[i];
-                    const radius = 2.0 + Math.sin(t * 0.25 + particleData.offsets[i]) * 0.5;
-                    const theta = Math.atan2(orig[i3 + 1], orig[i3]) + angle * 0.02;
-                    const phi = Math.acos(orig[i3 + 2] / Math.sqrt(orig[i3] * orig[i3] + orig[i3 + 1] * orig[i3 + 1] + orig[
-                    i3 + 2] * orig[i3 + 2]) || 0);
-                    pos[i3] = radius * Math.sin(phi) * Math.cos(theta);
-                    pos[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-                    pos[i3 + 2] = radius * Math.cos(phi);
-                }
-                particleData.geometry.attributes.position.needsUpdate = true;
+                // Slight body bob
+                character.position.y = Math.sin(t * 2.5) * 0.03;
 
-                particles.rotation.x = t * 0.015;
-                particles.rotation.y = t * 0.025;
+                // Rotate entire character based on mouse
+                character.rotation.y = targetX * 0.8;
+                character.rotation.x = targetY * 0.2;
 
-                rings.forEach((ring, idx) => {
-                    ring.rotation.x = Math.PI / 3 + idx * 0.3 + Math.sin(t * 0.2 + idx) * 0.1;
-                    ring.rotation.y = t * 0.12 + idx * 0.5 + Math.cos(t * 0.1 + idx) * 0.1;
-                    ring.position.y = Math.sin(t * 0.35 + idx * 1.2) * 0.1;
-                });
+                // Head bob / look
+                parts.head.rotation.x = Math.sin(t * 1.2) * 0.04;
+                parts.head.rotation.y = Math.sin(t * 0.8) * 0.04;
 
-                camera.position.x = targetX * 0.5;
-                camera.position.y = targetY * 0.3;
-                camera.lookAt(0, 0, 0);
+                // Camera orbits slightly (optional)
+                camera.position.x = 2.5 + Math.sin(t * 0.1) * 0.3;
+                camera.position.z = 5 + Math.sin(t * 0.15) * 0.3;
+                camera.lookAt(0, 0.6, 0);
 
                 renderer.render(scene, camera);
             }
 
             animate();
 
+            // Cleanup
             return () => {
                 window.removeEventListener('resize', resize);
                 renderer.dispose();
