@@ -31,7 +31,6 @@
             --accent-3: #40b0e0;
             --gradient-1: linear-gradient(135deg, #6c3ce0, #e040a0);
             --radius: 20px;
-            --radius-sm: 12px;
             --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         html {
@@ -422,12 +421,12 @@
         }
         .connect-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
             margin-top: 40px;
         }
         .social-card {
-            padding: 40px 20px;
+            padding: 32px 16px;
             text-align: center;
             transition: var(--transition);
             cursor: pointer;
@@ -437,15 +436,15 @@
             border-radius: var(--radius);
         }
         .social-card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-10px) scale(1.03);
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 12px 40px rgba(108, 60, 224, 0.2);
+            box-shadow: 0 12px 40px rgba(108, 60, 224, 0.25);
         }
         .social-emoji {
-            font-size: 3.6rem;
+            font-size: 3.2rem;
             display: block;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             transition: var(--transition);
         }
         .social-card:hover .social-emoji {
@@ -453,12 +452,14 @@
         }
         .social-label {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            color: var(--text-primary);
         }
         .social-handle {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: 4px;
+            word-break: break-all;
         }
 
         /* Floating emojis */
@@ -557,29 +558,35 @@
                 justify-content: center;
             }
             .connect-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 14px;
             }
             .social-card {
-                padding: 28px 16px;
+                padding: 24px 12px;
             }
             .social-emoji {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
+            }
+            .social-label {
+                font-size: 0.85rem;
+            }
+            .social-handle {
+                font-size: 0.7rem;
             }
         }
-        @media (max-width: 480px) {
-            #text-hero h1 {
-                font-size: 3.2rem;
-            }
+        @media (max-width: 500px) {
             .connect-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 12px;
             }
             .social-card {
-                padding: 20px 12px;
+                padding: 18px 10px;
             }
             .social-emoji {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            #text-hero h1 {
+                font-size: 3.2rem;
             }
         }
 
@@ -677,8 +684,8 @@
             </div>
 
             <div id="text-30" class="scroll-text">
-                <h2>Every detail matters</h2>
-                <p>Built block by block with precision and care.</p>
+                <h2>Built block by block</h2>
+                <p>Every detail matters in this pixelated world.</p>
             </div>
 
             <div id="text-60" class="scroll-text">
@@ -716,25 +723,35 @@
             </p>
 
             <div class="connect-grid">
-                <a href="#" target="_blank" class="social-card">
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@notnitesh88" target="_blank" class="social-card">
                     <span class="social-emoji">▶️</span>
                     <div class="social-label">YouTube</div>
-                    <div class="social-handle">@nottydev</div>
+                    <div class="social-handle">Not_Nitesh</div>
                 </a>
-                <a href="#" target="_blank" class="social-card">
+                <!-- Discord -->
+                <a href="https://discord.com/users/YOUR_DISCORD_ID_HERE" target="_blank" class="social-card">
                     <span class="social-emoji">💬</span>
                     <div class="social-label">Discord</div>
-                    <div class="social-handle">notty#1337</div>
+                    <div class="social-handle">N0TTY_N1T3SH</div>
                 </a>
-                <a href="#" target="_blank" class="social-card">
+                <!-- Telegram -->
+                <a href="https://t.me/not_nitesh" target="_blank" class="social-card">
                     <span class="social-emoji">✈️</span>
                     <div class="social-label">Telegram</div>
-                    <div class="social-handle">@notty_dev</div>
+                    <div class="social-handle">Not_Nitesh</div>
                 </a>
-                <a href="mailto:notty@example.com" class="social-card">
+                <!-- Modrinth -->
+                <a href="https://modrinth.com/user/Not_Nitesh" target="_blank" class="social-card">
+                    <span class="social-emoji">🧱</span>
+                    <div class="social-label">Modrinth</div>
+                    <div class="social-handle">Not_Nitesh</div>
+                </a>
+                <!-- Email -->
+                <a href="mailto:notnitesh6767@gmail.com" class="social-card">
                     <span class="social-emoji">📬</span>
                     <div class="social-label">Email</div>
-                    <div class="social-handle">notty@example.com</div>
+                    <div class="social-handle">notnitesh6767</div>
                 </a>
             </div>
 
@@ -762,7 +779,7 @@
 
     <script>
         // ============================================
-        // WEB SHOOTER OVERLAY (unchanged)
+        // WEB SHOOTER OVERLAY
         // ============================================
         (function initOverlay() {
             const overlay = document.getElementById('overlay');
@@ -1001,15 +1018,16 @@
             scene.add(plane);
 
             // ========================================
-            // BUILD MINECRAFT CHARACTER
+            // BUILD MINECRAFT CHARACTER (Low RAM Skin)
             // ========================================
             const character = new THREE.Group();
 
+            // Classic Steve colors
             const skin = 0xf0d8b0;
             const shirt = 0x4a90d9;
             const pants = 0x2c3e6b;
             const shoes = 0x5a4a3a;
-            const eye = 0x000000;
+            const eye = 0x1a1a1a;
 
             // Head
             const headGeo = new THREE.BoxGeometry(0.6, 0.6, 0.6);
@@ -1019,24 +1037,24 @@
             head.castShadow = true;
             character.add(head);
 
-            // Eyes
+            // Eyes (pixel style)
             const eyeMat = new THREE.MeshStandardMaterial({ color: eye });
-            const eyeGeo = new THREE.BoxGeometry(0.08, 0.08, 0.08);
+            const eyeGeo = new THREE.BoxGeometry(0.08, 0.08, 0.04);
             const eyeL = new THREE.Mesh(eyeGeo, eyeMat);
-            eyeL.position.set(-0.2, 0.1, -0.31);
+            eyeL.position.set(-0.18, 0.08, -0.31);
             head.add(eyeL);
             const eyeR = new THREE.Mesh(eyeGeo, eyeMat);
-            eyeR.position.set(0.2, 0.1, -0.31);
+            eyeR.position.set(0.18, 0.08, -0.31);
             head.add(eyeR);
 
-            // Mouth
+            // Mouth (small line)
             const mouthMat = new THREE.MeshStandardMaterial({ color: 0x5a3a2a });
-            const mouthGeo = new THREE.BoxGeometry(0.2, 0.04, 0.05);
+            const mouthGeo = new THREE.BoxGeometry(0.2, 0.04, 0.04);
             const mouth = new THREE.Mesh(mouthGeo, mouthMat);
-            mouth.position.set(0, -0.1, -0.31);
+            mouth.position.set(0, -0.08, -0.31);
             head.add(mouth);
 
-            // Body
+            // Body (shirt)
             const bodyGeo = new THREE.BoxGeometry(0.6, 0.7, 0.4);
             const bodyMat = new THREE.MeshStandardMaterial({ color: shirt, roughness: 0.6 });
             const body = new THREE.Mesh(bodyGeo, bodyMat);
@@ -1092,7 +1110,7 @@
                 shoeR
             };
 
-            // Original positions (for explosion)
+            // Original positions
             const origPos = {
                 leftArm: leftArm.position.clone(),
                 rightArm: rightArm.position.clone(),
@@ -1104,7 +1122,7 @@
                 shoeR: shoeR.position.clone(),
             };
 
-            // Explosion offsets (where parts move to when "exploded")
+            // Explosion offsets
             const explodeOffsets = {
                 leftArm: new THREE.Vector3(-1.2, 0.8, -0.2),
                 rightArm: new THREE.Vector3(1.2, 0.8, -0.2),
